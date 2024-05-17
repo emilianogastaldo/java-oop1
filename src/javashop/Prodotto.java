@@ -12,7 +12,7 @@ public class Prodotto {
 //    COSTRUTTORI
     Prodotto(String nome, String descrizione, double prezzo, int iva){
         Random rand = new Random();
-        codice = rand.nextInt(1000000);
+        codice = rand.nextInt(1000);
         this.nome = nome;
         this.descrizione = descrizione;
         this.prezzo = prezzo;
@@ -54,14 +54,15 @@ public class Prodotto {
     }
 //  Codice
     public String getCodice() {
-        return String.format("%06d", iva);
+        return String.format("%06d", codice);
     }
 //  Metodo per il prezzo più iva:
     public double getPrezzoIva(){
         return prezzo + (prezzo * iva / 100);
     }
-
+// Metodo per il nome esteso
     public String fullName(){
-        return codice + " " + nome;
+//        return codice+" "+nome;
+        return String.format("%06d", codice)+ " " + nome;
     }
 }
